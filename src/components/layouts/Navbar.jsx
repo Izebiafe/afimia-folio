@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
 import {
@@ -37,9 +38,8 @@ function Navbar({ dark, data }) {
 
   return (
     <div
-      className={`bg-new sticky w-full top-0 z-20 bg-white dark:bg-base-100 dark:text-white transition-all duration-200 ${
-        showShadow ? 'shadow-md' : ''
-      }`}
+      className={`bg-new sticky w-full top-0 z-20 bg-white dark:bg-base-100 dark:text-white transition-all duration-200 ${showShadow ? 'shadow-md' : ''
+        }`}
       id="Home"
     >
       <header className="inset-x-0 top-0 z-50 dark:bg-base-100">

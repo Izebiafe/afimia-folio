@@ -1,3 +1,4 @@
+'use client';
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -8,7 +9,7 @@ import {
   FaGithub,
   FaGithubAlt,
 } from 'react-icons/fa';
-import { TbBrandJavascript } from 'react-icons/tb';
+import { TbBrandJavascript, TbBrandTypescript } from 'react-icons/tb';
 import { PiDevToLogo } from 'react-icons/pi';
 import {
   SiJest,
@@ -18,12 +19,16 @@ import {
   SiWebpack,
   SiTailwindcss,
   SiBootstrap,
+  SiGraphql,
 } from 'react-icons/si';
+import { MdSpeed, MdApi } from 'react-icons/md';
+import { VscBeaker } from 'react-icons/vsc';
 
 function Skill() {
   const [activeTab, setActiveTab] = useState('all');
   const [frontendTools, setFrontendTools] = useState([]);
   const [SkillTools, setSkillTools] = useState([]);
+  const [systemsTools, setSystemsTools] = useState([]);
 
   const technologyStack = {
     frontend: {
@@ -33,6 +38,7 @@ function Skill() {
           icon: <TbBrandJavascript />,
           color: 'bg-newYellow',
         },
+        { name: 'TypeScript', icon: <TbBrandTypescript />, color: 'bg-blue-700' },
         { name: 'React', icon: <FaReact />, color: 'bg-blue-300' },
         { name: 'HTML5', icon: <FaHtml5 />, color: 'bg-orange-500' },
         { name: 'CSS3', icon: <FaCss3 />, color: 'bg-blue-600' },
@@ -40,21 +46,27 @@ function Skill() {
         { name: 'Tailwind', icon: <SiTailwindcss />, color: 'bg-teal-500' },
         { name: 'Bootstrap', icon: <SiBootstrap />, color: 'bg-purple-900' },
         { name: 'Webpack', icon: <SiWebpack />, color: 'bg-blue-500' },
-        { name: 'DaisyUI', icon: <SiDaisyui />, color: 'bg-teal-600' },
       ],
     },
     tools: [
       { name: 'Git', icon: <FaGithub />, color: 'bg-gray-500' },
       { name: 'GitHub', icon: <FaGithubAlt />, color: 'bg-gray-600' },
-      { name: 'vercel', icon: <SiVercel />, color: 'bg-gray-950' },
+      { name: 'Vercel', icon: <SiVercel />, color: 'bg-gray-950' },
       { name: 'DevTools', icon: <PiDevToLogo />, color: 'bg-blue-500' },
       { name: 'Jest', icon: <SiJest />, color: 'bg-red-600' },
+    ],
+    systems: [
+      { name: 'REST / HTTP', icon: <MdApi />, color: 'bg-indigo-500' },
+      { name: 'Web Vitals', icon: <MdSpeed />, color: 'bg-emerald-600' },
+      { name: 'Perf APIs', icon: <VscBeaker />, color: 'bg-amber-600' },
+      { name: 'GraphQL', icon: <SiGraphql />, color: 'bg-pink-600' },
     ],
   };
 
   useEffect(() => {
     setFrontendTools(technologyStack.frontend.tools);
     setSkillTools(technologyStack.tools);
+    setSystemsTools(technologyStack.systems);
   }, []);
 
   const handleTabChange = (tab) => {
@@ -75,6 +87,24 @@ function Skill() {
     }),
   };
 
+  const renderTools = (tools) =>
+    tools.map((tool, index) => (
+      <motion.li
+        variants={fadeInAnimationVarients}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        custom={index}
+        key={index}
+        className={`flex flex-col flex-grow items-center gap-3 rounded-lg p-3 w-20 md:w-32 ${tool.color}`}
+      >
+        <span className="text-4xl md:text-6xl text-white">{tool.icon}</span>
+        <p className="font-semibold text-sm md:text-base text-white">
+          {tool.name}
+        </p>
+      </motion.li>
+    ));
+
   return (
     <>
       <section id="Skill" className="py-28">
@@ -91,7 +121,7 @@ function Skill() {
             className="mb-16 text-center text-newDarkGray dark:text-white"
           >
             <h2 className="font-semibold text-4xl mb-3">Skills</h2>
-            <p>My technical level</p>
+            <p className="text-newGray dark:text-gray-400">Engineering stack</p>
           </motion.article>
           <motion.div
             initial="hidden"
@@ -105,31 +135,37 @@ function Skill() {
             className="flex flex- justify-center items-start gap-0 mb-10 md:gap-3"
           >
             <button
-              className={`py-2 px-3 text-newDarkGray font-semibold border-0 rounded-md dark:text-white ${
-                activeTab === 'all'
-                  ? 'bg-newGreen text-white hover:bg-newGreen'
-                  : 'hover:text-white hover:bg-newYellow'
-              }`}
+              className={`py-2 px-3 text-newDarkGray font-semibold border-0 rounded-md dark:text-white ${activeTab === 'all'
+                ? 'bg-newGreen text-white hover:bg-newGreen'
+                : 'hover:text-white hover:bg-newYellow'
+                }`}
               onClick={() => handleTabChange('all')}
             >
               All
             </button>
             <button
-              className={`py-2 px-3 text-newDarkGray font-semibold border-0 rounded-md dark:text-white hover:text-white ${
-                activeTab === 'frontend'
-                  ? 'bg-newGreen text-white hover:bg-newGreen'
-                  : 'hover:text-white hover:bg-newYellow'
-              }`}
+              className={`py-2 px-3 text-newDarkGray font-semibold border-0 rounded-md dark:text-white hover:text-white ${activeTab === 'frontend'
+                ? 'bg-newGreen text-white hover:bg-newGreen'
+                : 'hover:text-white hover:bg-newYellow'
+                }`}
               onClick={() => handleTabChange('frontend')}
             >
               Frontend
             </button>
             <button
-              className={`py-2 px-3 text-newDarkGray font-semibold border-0 rounded-md dark:text-white hover:text-white hover:bg-newYellow ${
-                activeTab === 'tools'
-                  ? 'bg-newGreen text-white hover:bg-newGreen'
-                  : ''
-              }`}
+              className={`py-2 px-3 text-newDarkGray font-semibold border-0 rounded-md dark:text-white hover:text-white ${activeTab === 'systems'
+                ? 'bg-newGreen text-white hover:bg-newGreen'
+                : 'hover:bg-newYellow'
+                }`}
+              onClick={() => handleTabChange('systems')}
+            >
+              Systems
+            </button>
+            <button
+              className={`py-2 px-3 text-newDarkGray font-semibold border-0 rounded-md dark:text-white hover:text-white hover:bg-newYellow ${activeTab === 'tools'
+                ? 'bg-newGreen text-white hover:bg-newGreen'
+                : ''
+                }`}
               onClick={() => handleTabChange('tools')}
             >
               Tools
@@ -139,86 +175,28 @@ function Skill() {
             {activeTab === 'all' && (
               <div className="grid flex-grow place-items-center py-10">
                 <ul className="flex flex-wrap gap-5 mb-0 justify-center items-center text-white">
-                  {frontendTools.map((tool, index) => (
-                    <motion.li
-                      variants={fadeInAnimationVarients}
-                      initial="initial"
-                      whileInView="animate"
-                      viewport={{
-                        once: true,
-                      }}
-                      custom={index}
-                      key={index}
-                      className={`flex flex-col flex-grow items-center gap-3 rounded-lg p-3 w-20 md:w-32 ${tool.color}`}
-                    >
-                      <span className="text-4xl md:text-6xl">{tool.icon}</span>
-                      <p className="font-semibold text-sm md:text-lg">
-                        {tool.name}
-                      </p>
-                    </motion.li>
-                  ))}
-                  {SkillTools.map((tool, index) => (
-                    <motion.li
-                      variants={fadeInAnimationVarients}
-                      initial="initial"
-                      whileInView="animate"
-                      viewport={{
-                        once: true,
-                      }}
-                      custom={index}
-                      key={index}
-                      className={`flex flex-col flex-grow items-center gap-3 rounded-lg p-3 w-20 md:w-32 ${tool.color}`}
-                    >
-                      <span className="text-4xl md:text-6xl">{tool.icon}</span>
-                      <p className="font-semibold text-sm">{tool.name}</p>
-                    </motion.li>
-                  ))}
+                  {renderTools([...frontendTools, ...systemsTools, ...SkillTools])}
                 </ul>
               </div>
             )}
             {activeTab === 'frontend' && (
               <div className="grid flex-grow place-items-center py-10">
                 <ul className="flex flex-wrap gap-5 mb-0 justify-center items-center text-white">
-                  {frontendTools.map((tool, index) => (
-                    <motion.li
-                      variants={fadeInAnimationVarients}
-                      initial="initial"
-                      whileInView="animate"
-                      viewport={{
-                        once: true,
-                      }}
-                      custom={index}
-                      key={index}
-                      className={`flex flex-col flex-grow items-center gap-3 rounded-lg p-3 w-20 md:w-32 ${tool.color}`}
-                    >
-                      <span className="text-4xl md:text-6xl">{tool.icon}</span>
-                      <p className="font-semibold text-sm md:text-lg">
-                        {tool.name}
-                      </p>
-                    </motion.li>
-                  ))}
+                  {renderTools(frontendTools)}
+                </ul>
+              </div>
+            )}
+            {activeTab === 'systems' && (
+              <div className="grid flex-grow place-items-center py-10">
+                <ul className="flex flex-wrap gap-5 mb-0 justify-center items-center text-white">
+                  {renderTools(systemsTools)}
                 </ul>
               </div>
             )}
             {activeTab === 'tools' && (
               <div className="grid flex-grow place-items-center py-10">
                 <ul className="flex flex-wrap gap-5 mb-0 justify-center items-center text-white">
-                  {SkillTools.map((tool, index) => (
-                    <motion.li
-                      variants={fadeInAnimationVarients}
-                      initial="initial"
-                      whileInView="animate"
-                      viewport={{
-                        once: true,
-                      }}
-                      custom={index}
-                      key={index}
-                      className={`flex flex-col flex-grow items-center gap-3 rounded-lg p-3 w-20 md:w-32 ${tool.color}`}
-                    >
-                      <span className="text-4xl md:text-6xl">{tool.icon}</span>
-                      <p className="font-semibold text-sm">{tool.name}</p>
-                    </motion.li>
-                  ))}
+                  {renderTools(SkillTools)}
                 </ul>
               </div>
             )}

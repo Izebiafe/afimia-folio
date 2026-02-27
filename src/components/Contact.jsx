@@ -1,3 +1,4 @@
+'use client';
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
@@ -35,7 +36,7 @@ function Contact() {
           className="mb-16 text-center text-white"
         >
           <h2 className="font-semibold text-4xl mb-3">Contact Me</h2>
-          <p>Get in Touch</p>
+          <p>Open to distributed systems and frontend engineering roles</p>
         </motion.article>
         <div className="flex flex-wrap">
           <div className="w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-6/12 text-white">
@@ -101,7 +102,7 @@ function Contact() {
             className="w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-6/12"
           >
             <h2 className="mb-6 text-xl text-white">
-              Let’s make magic together
+              Let's solve hard problems at scale
             </h2>
             <form
               action="https://formspree.io/f/xrgwpgzk"
@@ -140,7 +141,7 @@ function Contact() {
                 type="submit"
                 className="btn float-right border-0 p-3 px-6 text-white font-bold bg-newYellow rounded-md hover:bg-white hover:text-newDarkGray"
               >
-                Email me
+                Send Message
               </button>
             </form>
           </motion.div>
