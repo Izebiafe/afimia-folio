@@ -10,16 +10,18 @@ export default function Providers({ children }) {
     useEffect(() => {
         const savedMode = localStorage.getItem('darkMode');
         setDarkMode(savedMode === 'dark');
+        document.documentElement.setAttribute('data-theme', savedMode === 'dark' ? 'dark' : 'light');
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('darkMode', darkMode ? 'dark' : 'light');
         const localTheme = darkMode ? 'dark' : 'light';
         document.querySelector('html').setAttribute('data-theme', localTheme);
     }, [darkMode]);
 
     const handleDarkMode = () => {
-        setDarkMode((prev) => !prev);
+        const nextMode = !darkMode;
+        localStorage.setItem('darkMode', nextMode ? 'dark' : 'light');
+        setDarkMode(nextMode);
     };
 
     return (

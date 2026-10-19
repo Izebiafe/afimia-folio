@@ -11,8 +11,8 @@ import {
 const navigation = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#About' },
-  { name: 'Skill', href: '#Skill' },
-  { name: 'Project', href: '#Project' },
+  { name: 'Skills', href: '#Skill' },
+  { name: 'Work', href: '#Project' },
   { name: 'Contact', href: '#Contact' },
 ];
 
@@ -80,7 +80,8 @@ function Navbar({ dark, data }) {
               <input
                 type="checkbox"
                 onChange={dark}
-                checked={data ? 'dark' : ''}
+                checked={Boolean(data)}
+                aria-label="Toggle dark mode"
               />
               {/* sun icon */}
               <SunIcon className="text-newDarkYello swap-on w-6" />
@@ -103,7 +104,7 @@ function Navbar({ dark, data }) {
                 className="font-bold text-xl text-gray-700 dark:text-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                TochiDev
+                Afimia
               </a>
               <button
                 type="button"
