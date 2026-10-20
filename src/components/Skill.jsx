@@ -1,6 +1,6 @@
 const groups=[
  ['01','Frontend development',['JavaScript','TypeScript','React','Redux','HTML5','CSS3'],'Responsive interfaces and collaborative web application development.'],
- ['02','Backend project experience',['Ruby','Ruby on Rails','PostgreSQL','Active Record'],'Relational data modelling and validation through my Solo Blog project.'],
+ ['02','MERN stack development',['MongoDB','Express.js','React','Node.js'],'Full stack project experience across a React frontend, a Node.js and Express backend, and MongoDB.'],
  ['03','Tools and engineering practice',['Git','GitHub','Vercel','Chrome DevTools'],'Product planning, frontend architecture, code reviews, documentation, and mentoring.']
 ];
 export default function Skill(){return <section id="Skill" className="portfolio-section max-w-custom mx-auto px-5"><p className="eyebrow">WHAT I WORK WITH</p><h2>A focused engineering toolkit.</h2><div className="skill-grid">{groups.map(([number,title,tools,description])=><article className="skill-card" key={number}><span className="card-number">{number}</span><h3>{title}</h3><div className="tool-tags">{tools.map(tool=><span key={tool}>{tool}</span>)}</div><p>{description}</p></article>)}</div></section>;}

@@ -5,7 +5,7 @@ import Providers from './providers';
 export const metadata = {
     title: 'Afimia Fidelis Izebiafe | Software Engineer',
     description:
-        'Senior Engineer at Leoserve. React, TypeScript, product leadership, and frontend architecture. Explore Leoserve/Digiverse and Ameen Hospitality project contributions.',
+        'Senior Engineer at Leoserve. React, TypeScript, MERN stack development, product leadership, and frontend architecture. Explore Leoserve/Digiverse and Ameen Hospitality project contributions.',
 };
 
 export default function RootLayout({ children }) {
