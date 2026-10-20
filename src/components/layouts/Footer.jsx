@@ -20,12 +20,12 @@ function Footer() {
         </div>
         <div className="flex justify-center items-center gap-5 text-newGray md:justify-start dark:text-white">
           <a
-            href="https://www.linkedin.com/in/izebiafe/"
+            href="https://www.linkedin.com/in/afimia-fidelis-4862397a/"
             rel="noreferrer"
             target="_blank"
             className="text-2xl hover:text-newDarkYello"
           >
-            <FiLinkedin />
+            <FiLinkedin aria-label="LinkedIn" />
           </a>
           <a
             href="https://github.com/izebiafe"
@@ -33,15 +33,15 @@ function Footer() {
             target="_blank"
             className="text-2xl hover:text-newDarkYello"
           >
-            <FiGithub />
+            <FiGithub aria-label="GitHub" />
           </a>
           <a
-            href="https://afimia-folio.com"
+            href="https://afimia-folio.vercel.app"
             target="_blank"
             rel="noreferrer"
             className="text-2xl hover:text-newDarkYello"
           >
-            <FiGlobe />
+            <FiGlobe aria-label="Portfolio" />
           </a>
           <a
             href="https://wellfound.com/u/izebiafe"
@@ -49,7 +49,7 @@ function Footer() {
             target="_blank"
             className="text-2xl hover:text-newDarkYello"
           >
-            <FaAngellist />
+            <FaAngellist aria-label="Wellfound" />
           </a>
         </div>
         <div>

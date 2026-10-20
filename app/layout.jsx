@@ -3,9 +3,9 @@ import { Analytics } from '@vercel/analytics/react';
 import Providers from './providers';
 
 export const metadata = {
-    title: 'Afimia Fidelis Izebiafe — Frontend Engineer',
+    title: 'Afimia Fidelis Izebiafe | Software Engineer',
     description:
-        'Frontend Engineer specializing in scalable, data-driven interfaces for distributed systems. State architecture, API design, and rendering performance.',
+        'Senior Engineer at Leoserve. React, TypeScript, MERN stack development, product leadership, and frontend architecture. Explore Leoserve/Digiverse and Ameen Hospitality project contributions.',
 };
 
 export default function RootLayout({ children }) {
